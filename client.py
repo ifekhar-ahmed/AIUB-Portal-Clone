@@ -193,34 +193,43 @@ def login():
             user = data["user"]
             coloredPrint(data["message"], "green")
 
-             # --- AGER CODE ---
-             
-
             while True:
                 print(f"\n--- User Menu ({user['type'].upper()}) ---")
                 
-                # [CHANGE 1] Menu te 'Upload Marks' add korar jonno (Faculty der jonno)
+                # Menu Options
                 if user['type'] == 'student':
                     act = printChoice(["View Info", "Edit Info", "Enroll Course", "Logout"])
                 else:
                     act = printChoice(["View Info", "Edit Info", "Upload Marks", "Logout"])
 
+                # --- 1. View Info ---
                 if act == "1":
-                    # ... (View Info code same thakbe) ...
-                    pass 
+                    print("\n--- Your Data ---")
+                    # Ekhane user data print hobe
+                    for k, v in user.items():
+                        if k not in ["current_courses", "past_courses", "results"] and v is not None:
+                            print(f"{k.replace('_', ' ').title()}: {v}")
+                    
+                    if "current_courses" in user:
+                        print(f"Current Courses: {user['current_courses']}")
+                    
+                    if "results" in user and user["results"]:
+                         print(f"Academic Results: {user['results']}")
 
+                # --- 2. Edit Info ---
                 elif act == "2":
-                    # ... (Edit Info code same thakbe) ...
-                    pass
+                    updated_user = edit_user(user)
+                    if updated_user:
+                        user = updated_user
                 
-                # [ CHANGE 2] 3 number option handle kora
+                # --- 3. Enroll / Upload Korsi ---
                 elif act == "3":
                     if user['type'] == 'student':
                         enroll_course_ui(user)
                     elif user['type'] == 'faculty':
-                        upload_marks_ui()  # <--- Ei line ta notun
+                        upload_marks_ui()
 
-                # [CHANGE 3] Logout handle kora
+                # --- 4. Logout ---
                 elif act == "4":
                     break
         else:
