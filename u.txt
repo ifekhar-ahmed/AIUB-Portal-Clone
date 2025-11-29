@@ -1,0 +1,53 @@
+ID:3
+
+[1]
+id: 1
+password: 300
+name: Ibrar Amin
+address: dnad
+number: 0
+email: Ibrar@gmail.com
+dob: 2000-01-01
+blood_group: a+
+religion: Islam
+type: student
+semester: 1
+gpa: 0.0
+dept: Computer Science
+current_courses: []
+past_courses: []
+results: {}
+
+[2]
+id: 2
+password: 400
+name: 1
+address: Uttara, sector:3
+number: 1
+email: ifti43905@gmail.com
+dob: 2002-02-24
+blood_group: o+
+religion: Islam
+type: student
+semester: 2
+gpa: 3.5
+dept: Computer Science
+current_courses: ['CSC####']
+past_courses: []
+results: {'CSC####': 3.5}
+
+[3]
+id: 3
+password: 123
+name: ifti
+address: uttara
+number: 0
+email: teache@gmail.com
+dob: 2000-01-01
+blood_group: b+
+religion: Islam
+type: faculty
+salary: 1
+level: Lecturer
+dept: Computer Science
+
